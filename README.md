@@ -1,2 +1,2 @@
 # sqlite-cpp-wrapper
-Sqlite c++ wrapper
+Sqlite3 & Sqlcipher c++ wrapper
