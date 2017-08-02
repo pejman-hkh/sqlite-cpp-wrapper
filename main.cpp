@@ -3,7 +3,7 @@
 
 
 int main( int argc, char** argv  ) {
-	//Connect to mysql
+	//Connect to sqlite
 	sqlite db;
 	db.select("test");
 
