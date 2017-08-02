@@ -77,3 +77,8 @@ OR
 g++ -std=c++11 main.cpp -o test -lsqlite3
 ```
 
+# Use it in 4php
+
+You can use this sqlite wrapper in 4php
+
+https://github.com/pejman-hkh/4php
