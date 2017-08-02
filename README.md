@@ -65,7 +65,7 @@ int main( int argc, char** argv  ) {
 ```
 
 # Sqlcipher
-You can use set method for set key on your db file & lock it
+You can use set_key method for set key on your db file & lock it
 
 # Building
 ```
