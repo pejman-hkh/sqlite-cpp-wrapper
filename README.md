@@ -7,6 +7,7 @@ Sqlite3 & Sqlcipher c++ wrapper
 #include "var.h"
 #include "sqlite.h"
 
+using namespace vars;
 
 int main( int argc, char** argv  ) {
 	//Connect to sqlite
@@ -30,8 +31,8 @@ int main( int argc, char** argv  ) {
 
 	//Insert
 	var insert;
-	insert["title"] = "peji";
-	insert["date"] = "123456";
+	insert["title"] = "test";
+	insert["date"] = 123456;
 	int id = db.table("test").insert( insert );
 
 
