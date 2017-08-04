@@ -101,7 +101,7 @@ private:
 
             } else if( val.type() == "double" ) {
 
-               if( ! bind( to_number<double>( val.string() ) ) ) {
+               if( ! bind( val.to_num() ) ) {
                   return false;
                }
 
