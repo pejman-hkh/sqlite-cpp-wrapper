@@ -1,13 +1,6 @@
 # sqlite-cpp-wrapper
 Sqlite3 & Sqlcipher c++ wrapper
 
-# C++ vars
-See
-
-https://github.com/pejman-hkh/cpp-vars
-
-for var usage
-
 # Usage
 
 ```c++
@@ -71,6 +64,13 @@ int main( int argc, char** argv  ) {
 
 }
 ```
+
+# C++ vars
+See
+
+https://github.com/pejman-hkh/cpp-vars
+
+for var usage
 
 # Sqlcipher
 You can use set_key method for set key on your db file & lock it
