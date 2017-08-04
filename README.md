@@ -1,6 +1,13 @@
 # sqlite-cpp-wrapper
 Sqlite3 & Sqlcipher c++ wrapper
 
+# C++ vars
+See
+
+https://github.com/pejman-hkh/cpp-vars
+
+for var usage
+
 # Usage
 
 ```c++
