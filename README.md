@@ -66,7 +66,7 @@ int main( int argc, char** argv  ) {
 ```
 
 # C++ vars
-See https://github.com/pejman-hkh/cpp-vars for var usage
+See [C++ vars](https://github.com/pejman-hkh/cpp-vars) for var usage
 
 # Sqlcipher
 You can use set_key method for set key on your db file & lock it
@@ -83,10 +83,10 @@ g++ -std=c++11 main.cpp -o test -lsqlite3
 # Mysql wrapper
 see my mysql wrapper too :
 
-https://github.com/pejman-hkh/mysql-cpp-wrapper
+[Mysql c++ wrapper](https://github.com/pejman-hkh/mysql-cpp-wrapper)
 
 # Use it in 4php
 
 You can use this sqlite wrapper in 4php
 
-https://github.com/pejman-hkh/4php
+[4php](https://github.com/pejman-hkh/4php)
