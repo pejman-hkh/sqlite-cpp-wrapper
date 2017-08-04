@@ -4,6 +4,8 @@
 #define SQLITE_HAS_CODEC
 #include <sqlcipher/sqlite3.h>
 
+using namespace vars;
+
 class sqlite {
 private:
 

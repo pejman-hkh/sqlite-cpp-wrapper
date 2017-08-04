@@ -1,6 +1,7 @@
 #include "var.h"
 #include "sqlite.h"
 
+using namespace vars;
 
 int main( int argc, char** argv  ) {
 	//Connect to sqlite
