@@ -13,14 +13,14 @@ int main( int argc, char** argv  ) {
 	sqlite db;
 	db.select("test");
 
-    std::string create_table = "CREATE TABLE test("  \
-    "id INTEGER PRIMARY KEY AUTOINCREMENT," \
-    "title TEXT NOT NULL," \
-    "date INT NOT NULL);";
+	std::string create_table = "CREATE TABLE test("  \
+	"id INTEGER PRIMARY KEY AUTOINCREMENT," \
+	"title TEXT NOT NULL," \
+	"date INT NOT NULL);";
 
-    if( db.statement( create_table ) ) {
-        //echo( "table created\r\n" );
-    }
+	if( db.statement( create_table ) ) {
+	//echo( "table created\r\n" );
+	}
 
 
 	//Fetch with accosiated array
