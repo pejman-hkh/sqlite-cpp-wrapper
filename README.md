@@ -66,11 +66,7 @@ int main( int argc, char** argv  ) {
 ```
 
 # C++ vars
-See
-
-https://github.com/pejman-hkh/cpp-vars
-
-for var usage
+See https://github.com/pejman-hkh/cpp-vars for var usage
 
 # Sqlcipher
 You can use set_key method for set key on your db file & lock it
