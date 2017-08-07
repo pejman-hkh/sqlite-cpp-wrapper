@@ -270,8 +270,8 @@ public:
 
             var data;
             int i = 0;
-            for( auto key : columns ) {
-               var value = columns[ key ];
+            for( auto &key : columns ) {
+               var &value = columns[ key ];
 
                if( value == "TEXT" ) {
                   data[ key ] = sqlite3_column_text( _stmt, i );
