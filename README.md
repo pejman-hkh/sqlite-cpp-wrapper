@@ -58,10 +58,8 @@ data[0] = kv({ { "title" , "test ast" }, { "date", 12345 } });
 data[1] = kv({ { "title" , "test1 ast" }, { "date", 12345 } });
 data[2] = kv({ { "title" , "test2 ast" }, { "date", 12345 } });
 
-
-db.statement("BEGIN TRANSACTION");
-db.sql("INSERT INTO test(`title`, `date`) VALUES(?, ?)").bind_bulk( data );
-db.statement("COMMIT");
+db.begin().sql("INSERT INTO test(`title`, `date`) VALUES(?, ?)").bind_bulk( data );
+db.commit();
 
 echo( db.get_error() );
 ```
