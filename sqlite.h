@@ -92,16 +92,16 @@ private:
    bool bind( var &data ) {
       if( prepare() ) {
          
-         for( auto x : data  ) {
-            var val = data[x];
+         for( auto &x : data  ) {
+            var &val = data[x];
 
-            if( val.type() == "int" ) {
+            if( val.type() == VAR_INT ) {
 
                if( ! bind( val.to_int() ) ) {
                   return false;
                }
 
-            } else if( val.type() == "double" ) {
+            } else if( val.type() == VAR_DOUBLE ) {
 
                if( ! bind( val.to_num() ) ) {
                   return false;
@@ -146,6 +146,7 @@ private:
 
 
    bool bind( const int &val ) {
+
       ++_wilcard;
 
       if ( sqlite3_bind_int( _stmt, _wilcard, val ) != SQLITE_OK ) {
@@ -161,7 +162,7 @@ private:
 
       if ( sqlite3_bind_text( _stmt, _wilcard, val.c_str(), val.length(), SQLITE_TRANSIENT ) != SQLITE_OK ) {
          _error = sqlite3_errmsg( _db );
-         _error += "\r\nerror in bind string ! "+_wilcard;
+         _error += "\r\nerror in bind string !\r\n "+_wilcard;
          return false;
       }
       return true;
@@ -170,6 +171,52 @@ private:
 public:
 
    var loop_pagination;
+
+
+
+   bool bind_bulk( var &data ) {
+      if( prepare() ) {
+         
+         for( auto &x : data  ) {
+            _wilcard = 0;
+            for( auto &d : data[x] ) {
+               var &val = data[x][d];
+
+   
+               if( val.type() == VAR_INT ) {
+
+                  if( ! bind( val.to_int() ) ) {
+                     return false;
+                  }
+
+               } else if( val.type() == VAR_DOUBLE ) {
+
+                  if( ! bind( val.to_num() ) ) {
+                     return false;
+                  }
+
+               } else {
+                  if( ! bind( val.string() ) ) {
+                     return false;
+                  }               
+               }
+
+            }
+
+            sqlite3_step(_stmt);
+            sqlite3_clear_bindings(_stmt);
+            sqlite3_reset(_stmt);
+            
+         }
+
+         sqlite3_finalize( _stmt ); 
+
+         return true;
+      }
+
+      return false;
+   }
+
 
    std::string type() {
       return "sqlite";

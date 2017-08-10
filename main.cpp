@@ -3,11 +3,14 @@
 
 using namespace vars;
 
+var kv( var a ) {
+	return a.to_kv();
+}
+
 int main( int argc, char** argv  ) {
 	//Connect to sqlite
 	sqlite db;
 	db.select("test");
-
 	std::string create_table = "CREATE TABLE test("  \
 	"id INTEGER PRIMARY KEY AUTOINCREMENT," \
 	"title TEXT NOT NULL," \
@@ -49,11 +52,20 @@ int main( int argc, char** argv  ) {
 
 
 	//Fetch with assign value
-	var loop2 = db.sql("SELECT id, title FROM test WHERE id = ? ").find( { 1 } );
+	var loop2 = db.sql("SELECT id, title FROM test WHERE title = ? ").find( { "test" } );
 	print_r( loop2 );
 
-	//get error
+
+	//Transaction test
+	var data;
+	data[0] = kv({ { "title" , "test ast" }, { "date", 12345 } });
+	data[1] = kv({ { "title" , "test1 ast" }, { "date", 12345 } });
+	data[2] = kv({ { "title" , "test2 ast" }, { "date", 12345 } });
+
+
+	db.statement("BEGIN TRANSACTION");
+	db.sql("INSERT INTO test(`title`, `date`) VALUES(?, ?)").bind_bulk( data );
+	db.statement("COMMIT");
+
 	echo( db.get_error() );
-
-
 }
