@@ -9,7 +9,7 @@ var kv( var a ) {
 
 int main( int argc, char** argv  ) {
 	//Connect to sqlite
-	sqlite db;
+	ppp_sqlite::sqlite db;
 	db.select("test");
 	std::string create_table = "CREATE TABLE test("  \
 	"id INTEGER PRIMARY KEY AUTOINCREMENT," \
