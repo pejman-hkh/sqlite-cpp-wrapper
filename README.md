@@ -1,11 +1,12 @@
-# sqlite-cpp-wrapper
-Sqlite3 & Sqlcipher c++ wrapper
+# PPP_sqlite-cpp-wrapper
+PPP_sqlite is Sqlite3 & Sqlcipher c++ wrapper
+
 
 # Usage
 
 ```c++
 //Connect to sqlite
-sqlite db;
+ppp_sqlite::sqlite db;
 db.select("test");
 std::string create_table = "CREATE TABLE test("  \
 "id INTEGER PRIMARY KEY AUTOINCREMENT," \
