@@ -63,9 +63,8 @@ int main( int argc, char** argv  ) {
 	data[2] = kv({ { "title" , "test2 ast" }, { "date", 12345 } });
 
 
-	db.statement("BEGIN TRANSACTION");
-	db.sql("INSERT INTO test(`title`, `date`) VALUES(?, ?)").bind_bulk( data );
-	db.statement("COMMIT");
+	db.begin().sql("INSERT INTO test(`title`, `date`) VALUES(?, ?)").bind_bulk( data );
+	db.commit();
 
 	echo( db.get_error() );
 }

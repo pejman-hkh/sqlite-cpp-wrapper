@@ -173,6 +173,15 @@ public:
    var loop_pagination;
 
 
+   sqlite &begin() {
+      statement("BEGIN TRANSACTION");
+      return *this;
+   }
+
+   sqlite &commit() {
+      statement("COMMIT");
+      return *this;
+   }
 
    bool bind_bulk( var &data ) {
       if( prepare() ) {
